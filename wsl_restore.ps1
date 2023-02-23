@@ -19,10 +19,11 @@ if ($fileIndex -ge 0 -and $fileIndex -lt $files.Count) {
 
     # Output the selected file
     Write-Host "Selected file: $($selectedFile.FullName)" -ForegroundColor Green
+    # Import Selected Backup
+    wsl --import Ubuntu c:\wsl $folderPath\$selectedFile
+
 } else {
     # Output an error message if the user input is invalid
     Write-Host "Invalid selection. Please enter a number between 0 and $($files.Count - 1)." -ForegroundColor Red
 }
 
-# Import Selected Backup
-wsl --import Ubuntu c:\wsl $folderPath\$selectedFile
