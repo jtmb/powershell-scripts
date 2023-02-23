@@ -6,5 +6,4 @@ $date = Get-Date -Format $US_InsideOut #Set VAR for date using $US_InsideOut for
 
 #Export WSL (backup)
 cd $BackupDir
-wsl --export 
-Ubuntu wsl_ubuntu_backup_$date.tar
+wsl --export Ubuntu wsl_ubuntu_backup_$date.tar
