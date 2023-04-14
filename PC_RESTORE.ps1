@@ -33,7 +33,6 @@ if ($fileIndex -ge 0 -and $fileIndex -lt $files.Count) {
 }
 
 
-
 # ///////////////////// Defender Config///////////////////////
 # update defender
 Update-MpSignature
@@ -41,13 +40,13 @@ Update-MpSignature
 Add-MpPreference -ExclusionPath D:\SteamLibrary
 Add-MpPreference -ExclusionPath E:\SteamLibrary
 Add-MpPreference -ExclusionPath D:\'Riot Games'
-# Run quick scan
-MpScan -ScanType QuickScan
-
+# Run scan on above locations
+Start-MpScan -ScanType CustomScan -ScanPath D:\SteamLibrary
+Start-MpScan -ScanType CustomScan -ScanPath E:\SteamLibrary
+Start-MpScan -ScanType CustomScan -ScanPath D:\'Riot Games'
 
 
 # ///////////////////// Power Plan Settings ///////////////////////
-
 # Set power Plan to high performance
 $p = Get-CimInstance -Name root\cimv2\power -Class win32_PowerPlan -Filter "ElementName = 'High Performance'"      
 powercfg /setactive ([string]$p.InstanceID).Replace("Microsoft:PowerPlan\{","").Replace("}","")
