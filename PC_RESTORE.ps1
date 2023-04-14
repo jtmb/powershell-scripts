@@ -38,8 +38,9 @@ if ($fileIndex -ge 0 -and $fileIndex -lt $files.Count) {
 # update defender
 Update-MpSignature
 # exclude steam folders from real time scanning (fixes stuttering in some games)
-Set-MpPreference -ExclusionPath D:\SteamLibrary
-Set-MpPreference -ExclusionPath E:\SteamLibrary
+Add-MpPreference -ExclusionPath D:\SteamLibrary
+Add-MpPreference -ExclusionPath E:\SteamLibrary
+Add-MpPreference -ExclusionPath D:\'Riot Games'
 # Run quick scan
 MpScan -ScanType QuickScan
 
